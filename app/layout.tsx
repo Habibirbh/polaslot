@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "The predictive odds & tactical line analytics engine built for Hawkeye Nation. Spin live game scenarios, run AI match simulations, and generate gameday collectibles.",
   openGraph: { siteName: appName, type: "website", url: `https://${domain}` },
   twitter: { card: "summary_large_image", site: "@HawkeyeReport" },
+  other: { "ory-verify": "orynth-b7979e33a2ce4b3dbc05486ec13735d7" },
 };
 
 export const viewport: Viewport = { themeColor: "#FAFAFA" };
