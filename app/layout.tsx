@@ -1,8 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
-import { clerkEnabled } from "@/lib/auth";
-import { MockAuthProvider } from "@/components/MockAuth";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -26,17 +23,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#FAFAFA" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const tree = (
+  return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
       <body className="min-h-dvh font-sans">
-        <MockAuthProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </MockAuthProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
-
-  return clerkEnabled ? <ClerkProvider appearance={{ variables: { colorPrimary: "#18181B" } }}>{tree}</ClerkProvider> : tree;
 }

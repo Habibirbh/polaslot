@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
-import AuthControls from "./AuthControls";
 import { NAV } from "@/lib/nav";
 
 export default function Header() {
@@ -28,7 +27,7 @@ export default function Header() {
         scrolled ? "border-b border-line/70 bg-canvas/75 backdrop-blur-md" : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+      <div className="mx-auto grid h-18 max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-5 py-4 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
         <Logo />
 
         <nav className="glass hidden items-center gap-1 rounded-full px-2 py-1.5 md:flex" aria-label="Primary">
@@ -48,8 +47,8 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <AuthControls />
+        {/* Right column balances the logo so the nav pill stays centred */}
+        <div className="flex justify-end">
           <button
             className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white md:hidden"
             onClick={() => setOpen((o) => !o)}
