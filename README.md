@@ -30,4 +30,5 @@ npm run dev
 ## Notes
 - Probabilities come from a deterministic heuristic model (unit strength × scenario base rate × opponent strength × home field), not live odds.
 - Beat Digest, AI insight pills are seed data in `lib/data.ts` — wire to a real feed when ready.
+- Auth is client-side only (Clerk `SignInButton` / `UserButton`, or the mock session), so there is no `middleware.ts`. If you add server-side `auth()` or protected routes, add `clerkMiddleware()` back and make sure valid Clerk keys are set on Vercel first.
 - For entertainment/analysis only; not betting advice.
